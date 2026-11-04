@@ -1,0 +1,2 @@
+AI Support Statement
+In accordance with the course policy, I used generative AI as an AI advisor to assist in the design and development of this project. AI was used to help brainstorm the project concept for an explainable phishing detector, generate the fictional training dataset, and assist in writing the from-scratch Naive Bayes Python code. The AI also helped structure the project report and responsible AI considerations. I reviewed the code and the generated text to ensure it meets the assignment requirements.
