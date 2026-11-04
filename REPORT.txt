@@ -1,0 +1,23 @@
+Project Report: PhishGuard
+
+1. The Problem and Users
+Phishing remains one of the most common cybersecurity threats. Users struggle to distinguish between legitimate communications and malicious attempts to steal credentials. 
+Intended Users: General computer users, students, and administrative staff who need a quick, explainable second opinion on suspicious messages.
+
+2. AI Method
+The system uses Multinomial Naive Bayes, implemented completely from scratch in Python. By implementing it from scratch without machine learning libraries, the system demonstrates the underlying probability math. A rule-based expert layer checks for specific signals like URL shorteners or urgency words. The system calculates the log-likelihood of words to show the user exactly which words pushed the message toward a Phishing or Legit classification.
+
+3. Data
+The system is trained on a fictional, simulated dataset of 40 messages, 20 phishing and 20 legitimate. These messages were generated for educational purposes to mimic real-world patterns. No real user data or personal information is used.
+
+4. Testing and Results
+The system was tested with several scenarios:
+Successful Case: "Urgent: your account is suspended. Verify your password at http://secure-verify-login.xyz now" - Successfully flagged as PHISHING with high confidence, showing the exact words and URL that triggered the flag.
+Edge Case for Human Review: "Please verify your account details at http://example.com/login" - The model struggled with this because confidence was low. The rule layer caught it, and the system correctly flagged it for Human Review because a URL was combined with a verification request. 
+
+5. Limitations
+The training data is fictional and very small. The feedback loop is simulated and only saves to a local JSON file. The system must never be used as the sole decision-maker. It flags for review.
+
+6. Responsible AI
+Privacy: The system runs locally. No messages are sent to third-party APIs.
+Human Oversight: The system explicitly triggers a HUMAN REVIEW flag whenever confidence is below 65 percent or when rule signals conflict with the AI model.
